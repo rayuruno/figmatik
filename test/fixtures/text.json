@@ -1,0 +1,272 @@
+[
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "TXT", "characters": "Unordered list", "start": 0, "end": 14 },
+      { "type": "LINE_BREAK", "characters": "", "start": 14, "end": 15 }
+    ],
+    "start": 0,
+    "end": 15
+  },
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "LINE_BREAK", "characters": "", "start": 0, "end": 1 }
+    ],
+    "start": 15,
+    "end": 16
+  },
+  {
+    "type": "UNORDERED_LIST",
+    "indent": 1,
+    "children": [
+      {
+        "indent": 1,
+        "type": "UNORDERED_LIST_ITEM",
+        "children": [
+          { "type": "TXT", "characters": "one", "start": 0, "end": 3 }
+        ]
+      },
+      {
+        "indent": 1,
+        "type": "UNORDERED_LIST_ITEM",
+        "children": [
+          { "type": "TXT", "characters": "two", "start": 0, "end": 3 }
+        ]
+      },
+      {
+        "indent": 1,
+        "type": "UNORDERED_LIST_ITEM",
+        "children": [
+          { "type": "TXT", "characters": "three", "start": 0, "end": 5 }
+        ]
+      }
+    ],
+    "start": 16,
+    "end": 20
+  },
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "LINE_BREAK", "characters": "", "start": 0, "end": 1 }
+    ],
+    "start": 30,
+    "end": 31
+  },
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "TXT", "characters": "Ordered list", "start": 0, "end": 12 },
+      { "type": "LINE_BREAK", "characters": "", "start": 12, "end": 13 }
+    ],
+    "start": 31,
+    "end": 44
+  },
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "LINE_BREAK", "characters": "", "start": 0, "end": 1 }
+    ],
+    "start": 44,
+    "end": 45
+  },
+  {
+    "type": "ORDERED_LIST",
+    "indent": 1,
+    "children": [
+      {
+        "indent": 1,
+        "type": "ORDERED_LIST_ITEM",
+        "children": [
+          { "type": "TXT", "characters": "one", "start": 0, "end": 3 },
+          {
+            "type": "ORDERED_LIST",
+            "indent": 2,
+            "children": [
+              {
+                "indent": 2,
+                "type": "ORDERED_LIST_ITEM",
+                "children": [
+                  {
+                    "type": "TXT",
+                    "characters": "onetwo",
+                    "start": 0,
+                    "end": 6
+                  }
+                ]
+              }
+            ],
+            "start": 49,
+            "end": 56
+          }
+        ]
+      },
+      {
+        "indent": 1,
+        "type": "ORDERED_LIST_ITEM",
+        "children": [
+          {
+            "type": "LINK",
+            "style": {
+              "hyperlink": { "type": "URL", "url": "http://linkinlist" },
+              "textDecoration": "UNDERLINE"
+            },
+            "characters": "two",
+            "start": 0,
+            "end": 3
+          }
+        ]
+      },
+      {
+        "indent": 1,
+        "type": "ORDERED_LIST_ITEM",
+        "children": [
+          { "type": "TXT", "characters": "three", "start": 0, "end": 5 },
+          {
+            "type": "ORDERED_LIST",
+            "indent": 2,
+            "children": [
+              {
+                "indent": 2,
+                "type": "ORDERED_LIST_ITEM",
+                "children": [
+                  {
+                    "type": "TXT",
+                    "characters": "three-a",
+                    "start": 0,
+                    "end": 7
+                  },
+                  {
+                    "type": "ORDERED_LIST",
+                    "indent": 3,
+                    "children": [
+                      {
+                        "indent": 3,
+                        "type": "ORDERED_LIST_ITEM",
+                        "children": [
+                          {
+                            "type": "TXT",
+                            "characters": "three-a-i",
+                            "start": 0,
+                            "end": 9
+                          }
+                        ]
+                      },
+                      {
+                        "indent": 3,
+                        "type": "ORDERED_LIST_ITEM",
+                        "children": [
+                          {
+                            "type": "TXT",
+                            "characters": "three-a-ii",
+                            "start": 0,
+                            "end": 10
+                          }
+                        ]
+                      }
+                    ],
+                    "start": 74,
+                    "end": 84
+                  }
+                ]
+              },
+              {
+                "indent": 2,
+                "type": "ORDERED_LIST_ITEM",
+                "children": [
+                  {
+                    "type": "TXT",
+                    "characters": "three-b",
+                    "start": 0,
+                    "end": 7
+                  },
+                  {
+                    "type": "ORDERED_LIST",
+                    "indent": 3,
+                    "children": [
+                      {
+                        "indent": 3,
+                        "type": "ORDERED_LIST_ITEM",
+                        "children": [
+                          {
+                            "type": "TXT",
+                            "characters": "three-b-i",
+                            "start": 0,
+                            "end": 9
+                          },
+                          {
+                            "type": "ORDERED_LIST",
+                            "indent": 4,
+                            "children": [
+                              {
+                                "indent": 4,
+                                "type": "ORDERED_LIST_ITEM",
+                                "children": [
+                                  {
+                                    "type": "LINK",
+                                    "style": {
+                                      "hyperlink": {
+                                        "type": "URL",
+                                        "url": "http://oha"
+                                      },
+                                      "textDecoration": "UNDERLINE"
+                                    },
+                                    "characters": "three-b-i-1-link",
+                                    "start": 0,
+                                    "end": 16
+                                  }
+                                ]
+                              }
+                            ],
+                            "start": 113,
+                            "end": 130
+                          }
+                        ]
+                      }
+                    ],
+                    "start": 103,
+                    "end": 113
+                  }
+                ]
+              }
+            ],
+            "start": 66,
+            "end": 74
+          }
+        ]
+      },
+      {
+        "indent": 1,
+        "type": "ORDERED_LIST_ITEM",
+        "children": [
+          { "type": "TXT", "characters": "four", "start": 0, "end": 5 }
+        ]
+      }
+    ],
+    "start": 45,
+    "end": 49
+  },
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "LINE_BREAK", "characters": "", "start": 0, "end": 1 }
+    ],
+    "start": 135,
+    "end": 136
+  },
+  {
+    "type": "LINE",
+    "indent": 0,
+    "children": [
+      { "type": "TXT", "characters": "then normal text", "start": 0, "end": 16 }
+    ],
+    "start": 136,
+    "end": 153
+  }
+]

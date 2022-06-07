@@ -1,0 +1,33 @@
+{
+  "name": "figmatik",
+  "version": "1.0.0",
+  "description": "low level toolkit to work with figma rest api.",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "build:docs": "typedoc",
+    "test": "uvu -b -r tsm --config tsconfig.dev.json test .*.test.ts"
+  },
+  "keywords": [
+    "figma",
+    "rest",
+    "plugin",
+    "etl"
+  ],
+  "author": "me@onuruyar.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/he": "^1.1.2",
+    "@types/node": "^17.0.38",
+    "nock": "^13.2.4",
+    "tsm": "^2.2.1",
+    "typedoc": "^0.22.17",
+    "typescript": "^4.7.2",
+    "uvu": "^0.5.3"
+  },
+  "dependencies": {
+    "he": "^1.2.0",
+    "postcss-selector-parser": "^6.0.10"
+  }
+}

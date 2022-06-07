@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cssbeautify": "^0.3.1",
+    "figmatik": "file:../.."
+  }
+}

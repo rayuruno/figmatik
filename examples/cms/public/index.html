@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Slab&family=Zilla+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* body {
+        transform: scale(0.5);
+        transform-origin: left top;
+      } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <select id="lang">
+        <option>en</option>
+        <option>nl</option>
+      </select>
+    </header>
+
+    <main id="main"></main>
+
+    <script>
+      pages = [
+        "zilla-slab---inter--about",
+        "zilla-slab---inter--preview",
+        "zilla-slab---inter--type-scale",
+      ];
+      load = (lang) => {
+        main.replaceChildren();
+        pages.forEach((p) =>
+          fetch(`/content/${lang}/${p}.html`)
+            .then((r) => r.text())
+            .then((t) => render(p, t))
+        );
+      };
+      render = (p, t) => {
+        main.insertAdjacentHTML("beforeend", t);
+      };
+      lang.oninput = () => (location.hash = lang.value);
+      onhashchange = () => load(location.hash.substring(1));
+      lang.value = location.hash?.substring(1) || "en";
+      load(location.hash?.substring(1) || "en");
+    </script>
+  </body>
+</html>
