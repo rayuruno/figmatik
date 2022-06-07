@@ -4,7 +4,7 @@ low level toolkit to **hack** figma rest api.
 
 see examples directory for some ideas.
 
-[https://rayuruno.github.io/figmatik/](docs)
+[https://rayuruno.github.io/figmatik/](https://rayuruno.github.io/figmatik/)
 
 ## simple example
 
