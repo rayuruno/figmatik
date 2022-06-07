@@ -4,6 +4,8 @@ low level toolkit to **hack** figma rest api.
 
 see examples directory for some ideas.
 
+[https://rayuruno.github.io/figmatik/](docs)
+
 ## simple example
 
 collects all component nodes which has name starting with "Icons/"
