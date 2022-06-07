@@ -1,6 +1,8 @@
 # figmatik
 
-low level toolkit to work with figma rest api.
+low level toolkit to **hack** figma rest api.
+
+see examples directory for some ideas.
 
 ## simple example
 
@@ -9,11 +11,11 @@ collects all component nodes which has name starting with "Icons/"
 ```js
 import figmatik from "figmatik";
 
-const fig = figmatik(/* config: {token,cache,plugins} */);
+const figma = figmatik(/* config: {token,cache,plugins} */);
 
-const file = await fig.files("ZsaaakKEgys8zPMBaUbFz3");
+const file = await figma.files("ZsaaakKEgys8zPMBaUbFz3");
 
-const iconNodes = fig.findAll(
+const iconNodes = figma.findAll(
   file.document,
   (node) => node.type === "COMPONENT" && node.name.startsWith("Icons/")
 );
@@ -33,7 +35,7 @@ const exportSettings = [
   { format: "png", scale: 1, suffix: "@1x" },
   { format: "png", scale: 2, suffix: "@2x" },
 ];
-const images = await fig.plugin.export(nodes, exportSettings);
+const images = await figma.export(nodes, exportSettings);
 images[0].buffer instanceof Buffer; // true
 images[0].node === nodes[0]; // true
 ```
@@ -43,11 +45,19 @@ images[0].node === nodes[0]; // true
 enables dom selector api (css selectors) to query nodes
 
 ```js
-fig.plugin.querySelectorAll(file.document, ".component[name^=icons]");
+figma.querySelectorAll(file.document, ".component[name^=icons]");
+figma.querySelector(file.document, ".component[name^=icons]");
 
-// above is equivalent of
+// or
+file.document.querySelectorAll(".component[name^=icons]");
+file.document.querySelector(".component[name^=icons]");
 
-fig.node.findAll(
+// or
+file.document.$$(".component[name^=icons]");
+file.document.$(".component[name^=icons]");
+
+// above are equivalent of
+figma.node.findAll(
   file.document,
   (node) => node.type === "COMPONENT" && node.name.startsWith("Icons/")
 );
@@ -76,9 +86,7 @@ const textNode = {
   /* rest of the props */
 };
 
-const text = fig.plugin.text(textNode);
-
-text === {
+textNode.children === {
   /* copy of textNode */
 
   children: [
@@ -114,6 +122,5 @@ text === {
 transform figma node properties into ast compatible with css and react native
 
 ```js
-const style = fig.plugin.style(node);
-style.backgroundColor === "rgba(0,0,0,1)";
+node.styleMap.backgroundColor === "rgba(0,0,0,1)";
 ```
