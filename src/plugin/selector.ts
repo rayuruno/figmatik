@@ -4,11 +4,14 @@ import SelectorParser from "postcss-selector-parser";
 
 const processor = SelectorParser();
 const { defineProperties, assign } = Object;
-
+const processed = Symbol("selectorplugin");
 export default {
   name: "selector",
 
   node(n: NodeApi) {
+    if ((n as any)[processed]) return;
+    (n as any)[processed] = true;
+
     defineProperties(n, {
       tag: { value: replaceNonWord(n.name) },
       class: { value: replaceNonWord(n.type) },

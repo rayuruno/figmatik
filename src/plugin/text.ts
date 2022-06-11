@@ -1,5 +1,6 @@
 import he from "he";
 const options = { delimStart: "{{", delimEnd: "}}" };
+const processed = Symbol("textplugin");
 
 export default (opts?: { delimStart: string; delimEnd: string }) => {
   if (opts) {
@@ -11,6 +12,9 @@ export default (opts?: { delimStart: string; delimEnd: string }) => {
     name: "text",
 
     node(n: NodeApi<TextNode>) {
+      if ((n as any)[processed]) return;
+      (n as any)[processed] = true;
+
       if (n?.type == "TEXT") {
         Object.defineProperty(n, "children", {
           value: withChildren(n)?.children,

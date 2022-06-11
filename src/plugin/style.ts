@@ -45,6 +45,8 @@ const styles = {
 
 const options = { unit: DEFAULT_UNIT };
 
+const processed = Symbol("styleplugin");
+
 export default (opts?: { unit: "pixel" | "rem" | "perc" | "unitless" }) => {
   if (opts) {
     options.unit = opts.unit;
@@ -53,6 +55,9 @@ export default (opts?: { unit: "pixel" | "rem" | "perc" | "unitless" }) => {
     name: "style",
 
     node(node: NodeApi) {
+      if ((node as any)[processed]) return;
+      (node as any)[processed] = true;
+
       let getter: any;
       if (node?.type.match(VECTOR_TYPE_RE)) {
         getter = vectorStyle;
