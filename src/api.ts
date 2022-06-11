@@ -45,9 +45,10 @@ export function Endpoint<RequestType, ResponseType>(
   const request = config?.request || http.Request(config?.cache);
 
   return async function endpoint(
-    params?: RequestType,
+    requestParams?: RequestType,
     cache?: http.RequestOptions["cache"]
   ): Promise<ResponseType> {
+    let params = { ...requestParams };
     let pathParams: Record<string, string> = {};
     let path = resource.replace(/(:\w+)/, (_, s) => {
       let key = s.substring(1);
