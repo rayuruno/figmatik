@@ -1,15 +1,23 @@
 import he from "he";
+const options = { delimStart: "{{", delimEnd: "}}" };
 
-export default {
-  name: "text",
+export default (opts?: { delimStart: string; delimEnd: string }) => {
+  if (opts) {
+    options.delimStart = opts.delimStart;
+    options.delimEnd = opts.delimEnd;
+  }
 
-  node(n: NodeApi<TextNode>) {
-    if (n?.type == "TEXT") {
-      Object.defineProperty(n, "children", {
-        value: withChildren(n)?.children,
-      });
-    }
-  },
+  return {
+    name: "text",
+
+    node(n: NodeApi<TextNode>) {
+      if (n?.type == "TEXT") {
+        Object.defineProperty(n, "children", {
+          value: withChildren(n)?.children,
+        });
+      }
+    },
+  };
 };
 
 export function getRanges(node: NodeApi<TextNode>) {
@@ -89,7 +97,11 @@ export function getLines(node: NodeApi<TextNode>) {
   return ls;
 }
 
-export function getVariables(text: string, delimStart = "{{", delimEnd = "}}") {
+export function getVariables(
+  text: string,
+  delimStart = options.delimStart,
+  delimEnd = options.delimEnd
+) {
   let cs = text
     .split(new RegExp(`(${delimStart}.+${delimEnd})`, "g"))
     .map((characters) => ({

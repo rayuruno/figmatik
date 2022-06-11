@@ -15,12 +15,13 @@ export class Figmatik {
 
   constructor(config: FigmatikConfig = {}) {
     config.plugins ||= [];
-    config.plugins.unshift(
-      plugin.export,
-      plugin.selector,
-      plugin.text,
-      plugin.style
-    );
+    if (!config.plugins.find((p) => p.name === "text")) {
+      config.plugins.unshift(plugin.text());
+    }
+    if (!config.plugins.find((p) => p.name === "style")) {
+      config.plugins.unshift(plugin.style());
+    }
+    config.plugins.unshift(plugin.export, plugin.selector);
 
     this.http = {
       request: http.Request(config.cache),
