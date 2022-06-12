@@ -20,7 +20,7 @@ export function justifyContent(node: NodeApi<FrameNode>) {
     node.layoutMode === "HORIZONTAL"
       ? node.primaryAxisAlignItems
       : node.counterAxisAlignItems;
-  return k ? ALIGN_ITEMS[k] : undefined;
+  return k ? ALIGN_ITEMS[k] : "flex-start";
 }
 
 export function alignItems(node: NodeApi<FrameNode>) {
@@ -30,10 +30,10 @@ export function alignItems(node: NodeApi<FrameNode>) {
     MAX: "flex-end",
   };
   let k =
-    node.layoutMode === "HORIZONTAL"
+    node.layoutMode === "VERTICAL"
       ? node.counterAxisAlignItems
       : node.primaryAxisAlignItems;
-  return k ? ALIGN_ITEMS[k] : undefined;
+  return k ? ALIGN_ITEMS[k] : "flex-start";
 }
 
 export function padding(node: NodeApi<FrameNode>, unit = units.DEFAULT_UNIT) {

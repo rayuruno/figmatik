@@ -36,7 +36,7 @@ test("justifyContent", () => {
 });
 test("alignItems", () => {
   assert.is(
-    alignItems({ layoutMode: "VERTICAL", primaryAxisAlignItems: "MAX" } as any),
+    alignItems({ layoutMode: "VERTICAL", counterAxisAlignItems: "MAX" } as any),
     "flex-end"
   );
   // assert.is(alignItems({ layoutMode: "HORIZONTAL", counterAxisAlignItems: "SPACE_BETWEEN" }), "space-between");
