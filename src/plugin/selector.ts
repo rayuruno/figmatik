@@ -10,7 +10,6 @@ export default {
 
   node(n: NodeApi) {
     if ((n as any)[processed]) return;
-    (n as any)[processed] = true;
 
     defineProperties(n, {
       tag: { value: replaceNonWord(n.name) },
@@ -22,6 +21,9 @@ export default {
             value: (k) => k,
           }),
         },
+      },
+      [processed]: {
+        value: true,
       },
     });
 
@@ -133,7 +135,7 @@ export function parseSelector(selectorText: string): QuerySelector[] {
       case "attribute": {
         query ||= {};
         if (node.attribute.startsWith("@")) {
-          query[replaceNonWord(node.attribute.substring(1), "")] = [
+          query[replaceNonWord(node.attribute.substring(1))] = [
             node.operator!,
             node.attribute === "@id"
               ? node.value!
@@ -142,7 +144,7 @@ export function parseSelector(selectorText: string): QuerySelector[] {
         } else {
           query.attrs ||= {};
           (query.attrs as Record<string, [Operator, string]>)[
-            replaceNonWord(node.attribute, "")
+            replaceNonWord(node.attribute)
           ] = [node.operator!, replaceNonWord(node.value!, "")];
         }
         break;
